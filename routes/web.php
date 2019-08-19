@@ -38,3 +38,7 @@ Route::post(
 
 
 Route::resource('projetos', 'projetoController');
+
+
+
+Route::resource('modelos', 'modeloController');
