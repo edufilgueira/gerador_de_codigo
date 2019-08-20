@@ -11,8 +11,8 @@
         "inIndex": true
     },
     {
-        "name": "projeto",
-        "dbType": "integer:unsigned:foreign,modelos,id",
+        "name": "projeto_id",
+        "dbType": "integer:unsigned:foreign,projetos,id",
         "htmlType": "select,",
         "validations": "required",
         "searchable": true,
@@ -22,7 +22,18 @@
         "inIndex": true
     },
     {
-        "name": "nome",
+        "name": "singular",
+        "dbType": "string",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "plural",
         "dbType": "string",
         "htmlType": "text",
         "validations": "",
@@ -53,5 +64,9 @@
         "primary": false,
         "inForm": false,
         "inIndex": false
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Projeto,id"
     }
 ]

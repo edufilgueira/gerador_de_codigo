@@ -6,26 +6,26 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class modelo
+ * Class Projeto
  * @package App\Models
- * @version August 19, 2019, 5:56 pm UTC
+ * @version August 20, 2019, 12:22 pm UTC
  *
- * @property integer projeto
  * @property string nome
+ * @property string linguagem
  */
-class modelo extends Model
+class Projeto extends Model
 {
     use SoftDeletes;
 
-    public $table = 'modelos';
+    public $table = 'projetos';
     
 
     protected $dates = ['deleted_at'];
 
 
     public $fillable = [
-        'projeto',
-        'nome'
+        'nome',
+        'linguagem'
     ];
 
     /**
@@ -35,8 +35,8 @@ class modelo extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'projeto' => 'integer',
-        'nome' => 'string'
+        'nome' => 'string',
+        'linguagem' => 'string'
     ];
 
     /**
@@ -45,8 +45,8 @@ class modelo extends Model
      * @var array
      */
     public static $rules = [
-        'projeto' => 'required'
+        
     ];
 
-    
+    public $belongsTo = [];
 }

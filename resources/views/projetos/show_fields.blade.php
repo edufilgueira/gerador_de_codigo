@@ -10,10 +10,10 @@
     <p>{!! $projeto->nome !!}</p>
 </div>
 
-<!-- Tipo Field -->
+<!-- Linguagem Field -->
 <div class="form-group">
-    {!! Form::label('tipo', 'Tipo:') !!}
-    <p>{!! $projeto->tipo !!}</p>
+    {!! Form::label('linguagem', 'Linguagem:') !!}
+    <p>{!! $projeto->linguagem !!}</p>
 </div>
 
 <!-- Created At Field -->

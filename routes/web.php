@@ -35,10 +35,8 @@ Route::post(
     '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
 );
 
+Route::resource('projetos', 'ProjetoController');
 
+Route::resource('modelos', 'ModeloController');
 
-Route::resource('projetos', 'projetoController');
-
-
-
-Route::resource('modelos', 'modeloController');
+Route::resource('campos', 'CampoController');

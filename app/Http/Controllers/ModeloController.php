@@ -2,27 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreatemodeloRequest;
-use App\Http\Requests\UpdatemodeloRequest;
-use App\Repositories\modeloRepository;
+use App\Http\Requests\CreateModeloRequest;
+use App\Http\Requests\UpdateModeloRequest;
+use App\Repositories\ModeloRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use App\Models\projeto;
+use App\Models\Projeto;
 use Flash;
 use Response;
 
-class modeloController extends AppBaseController
+class ModeloController extends AppBaseController
 {
-    /** @var  modeloRepository */
+    /** @var  ModeloRepository */
     private $modeloRepository;
 
-    public function __construct(modeloRepository $modeloRepo)
+    public function __construct(ModeloRepository $modeloRepo)
     {
         $this->modeloRepository = $modeloRepo;
     }
 
     /**
-     * Display a listing of the modelo.
+     * Display a listing of the Modelo.
      *
      * @param Request $request
      *
@@ -30,8 +30,6 @@ class modeloController extends AppBaseController
      */
     public function index(Request $request)
     {
-        //https://www.youtube.com/watch?v=mYVl4lUadcs
-        $projetos = projeto::lists('nome','id');
         $modelos = $this->modeloRepository->paginate(10);
 
         return view('modelos.index')
@@ -39,24 +37,24 @@ class modeloController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new modelo.
+     * Show the form for creating a new Modelo.
      *
      * @return Response
      */
     public function create()
     {
-        $projetos = projeto::lists('nome','id');
-        return view('modelos.create', compact('projetos'));
+        $projetos = Projeto::pluck('nome', 'id');
+        return view('modelos.create', compact('id', 'projetos'));
     }
 
     /**
-     * Store a newly created modelo in storage.
+     * Store a newly created Modelo in storage.
      *
-     * @param CreatemodeloRequest $request
+     * @param CreateModeloRequest $request
      *
      * @return Response
      */
-    public function store(CreatemodeloRequest $request)
+    public function store(CreateModeloRequest $request)
     {
         $input = $request->all();
 
@@ -68,7 +66,7 @@ class modeloController extends AppBaseController
     }
 
     /**
-     * Display the specified modelo.
+     * Display the specified Modelo.
      *
      * @param int $id
      *
@@ -88,7 +86,7 @@ class modeloController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified modelo.
+     * Show the form for editing the specified Modelo.
      *
      * @param int $id
      *
@@ -108,14 +106,14 @@ class modeloController extends AppBaseController
     }
 
     /**
-     * Update the specified modelo in storage.
+     * Update the specified Modelo in storage.
      *
      * @param int $id
-     * @param UpdatemodeloRequest $request
+     * @param UpdateModeloRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdatemodeloRequest $request)
+    public function update($id, UpdateModeloRequest $request)
     {
         $modelo = $this->modeloRepository->find($id);
 
@@ -133,7 +131,7 @@ class modeloController extends AppBaseController
     }
 
     /**
-     * Remove the specified modelo from storage.
+     * Remove the specified Modelo from storage.
      *
      * @param int $id
      *

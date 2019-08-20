@@ -4,10 +4,10 @@
     {!! Form::text('nome', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Tipo Field -->
+<!-- Linguagem Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tipo', 'Tipo:') !!}
-    {!! Form::select('tipo', ['angular' => 'angular'], null, ['class' => 'form-control']) !!}
+    {!! Form::label('linguagem', 'Linguagem:') !!}
+    {!! Form::select('linguagem', ['Angular' => 'Angular'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

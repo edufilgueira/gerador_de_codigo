@@ -4,7 +4,7 @@
             <tr>
                 <th>Id</th>
         <th>Nome</th>
-        <th>Tipo</th>
+        <th>Linguagem</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -13,7 +13,7 @@
             <tr>
                 <td>{!! $projeto->id !!}</td>
             <td>{!! $projeto->nome !!}</td>
-            <td>{!! $projeto->tipo !!}</td>
+            <td>{!! $projeto->linguagem !!}</td>
                 <td>
                     {!! Form::open(['route' => ['projetos.destroy', $projeto->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

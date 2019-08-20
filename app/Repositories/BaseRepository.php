@@ -85,7 +85,7 @@ abstract class BaseRepository
      */
     public function allQuery($search = [], $skip = null, $limit = null)
     {
-        $query = $this->model->newQuery();
+        $query = $this->model->with($this->model->belongsTo)->newQuery();
 
         if (count($search)) {
             foreach($search as $key => $value) {

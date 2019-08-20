@@ -2,23 +2,25 @@
 
 namespace App\Repositories;
 
-use App\Models\projeto;
+use App\Models\Campo;
 use App\Repositories\BaseRepository;
 
 /**
- * Class projetoRepository
+ * Class CampoRepository
  * @package App\Repositories
- * @version August 19, 2019, 5:20 pm UTC
+ * @version August 20, 2019, 7:04 pm UTC
 */
 
-class projetoRepository extends BaseRepository
+class CampoRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
+        'modelo_id',
         'nome',
-        'tipo'
+        'validador',
+        'tipo_input'
     ];
 
     /**
@@ -36,6 +38,6 @@ class projetoRepository extends BaseRepository
      **/
     public function model()
     {
-        return projeto::class;
+        return Campo::class;
     }
 }

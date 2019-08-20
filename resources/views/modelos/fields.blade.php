@@ -1,13 +1,19 @@
-<!-- Projeto Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('projeto', 'Projeto:') !!}
-    {!! Form::select('projeto', $projetos, null, ['class' => 'form-control']) !!}
+<!-- Projeto Id Field -->
+<div class="form-group col-sm-12">
+    {!! Form::label('projeto_id', 'Projeto:') !!}
+    {!! Form::select('projeto_id', $projetos, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Nome Field -->
+<!-- Singular Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nome', 'Nome:') !!}
-    {!! Form::text('nome', null, ['class' => 'form-control']) !!}
+    {!! Form::label('singular', 'Singular:') !!}
+    {!! Form::text('singular', null, ['class' => 'form-control']) !!}
+</div>
+
+<!-- Plural Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('plural', 'Plural:') !!}
+    {!! Form::text('plural', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

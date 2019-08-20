@@ -3,8 +3,9 @@
         <thead>
             <tr>
                 <th>Id</th>
-        <th>Projeto</th>
-        <th>Nome</th>
+        <th>Projeto Id</th>
+        <th>Singular</th>
+        <th>Plural</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -12,8 +13,9 @@
         @foreach($modelos as $modelo)
             <tr>
                 <td>{!! $modelo->id !!}</td>
-            <td>{!! $modelo->projeto !!}</td>
-            <td>{!! $modelo->nome !!}</td>
+            <td>{!! $modelo->projeto->nome !!}</td>
+            <td>{!! $modelo->singular !!}</td>
+            <td>{!! $modelo->plural !!}</td>
                 <td>
                     {!! Form::open(['route' => ['modelos.destroy', $modelo->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

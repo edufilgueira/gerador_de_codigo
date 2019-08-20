@@ -11,6 +11,17 @@
         "inIndex": true
     },
     {
+        "name": "modelo_id",
+        "dbType": "integer:unsigned:foreign,modelos,id",
+        "htmlType": "select,",
+        "validations": "",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
         "name": "nome",
         "dbType": "string",
         "htmlType": "text",
@@ -22,9 +33,20 @@
         "inIndex": true
     },
     {
-        "name": "tipo",
+        "name": "validador",
         "dbType": "string",
-        "htmlType": "select,angular",
+        "htmlType": "text",
+        "validations": "",
+        "searchable": true,
+        "fillable": true,
+        "primary": false,
+        "inForm": true,
+        "inIndex": true
+    },
+    {
+        "name": "tipo_input",
+        "dbType": "string",
+        "htmlType": "select,Text",
         "validations": "",
         "searchable": true,
         "fillable": true,
@@ -53,5 +75,9 @@
         "primary": false,
         "inForm": false,
         "inIndex": false
+    },
+    {
+        "type": "relation",
+        "relation": "1tm,Modelo,id"
     }
 ]

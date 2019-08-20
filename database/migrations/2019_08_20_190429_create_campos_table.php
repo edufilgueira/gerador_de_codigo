@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateModelosTable extends Migration
+class CreateCamposTable extends Migration
 {
 
     /**
@@ -13,13 +13,15 @@ class CreateModelosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modelos', function (Blueprint $table) {
+        Schema::create('campos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('projeto')->unsigned();
+            $table->integer('modelo_id')->unsigned();
             $table->string('nome');
+            $table->string('validador');
+            $table->string('tipo_input');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('projeto')->references('id')->on('modelos');
+            $table->foreign('modelo_id')->references('id')->on('modelos');
         });
     }
 
@@ -30,6 +32,6 @@ class CreateModelosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('modelos');
+        Schema::drop('campos');
     }
 }

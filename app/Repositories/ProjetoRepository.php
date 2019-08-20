@@ -2,23 +2,23 @@
 
 namespace App\Repositories;
 
-use App\Models\modelo;
+use App\Models\Projeto;
 use App\Repositories\BaseRepository;
 
 /**
- * Class modeloRepository
+ * Class ProjetoRepository
  * @package App\Repositories
- * @version August 19, 2019, 5:56 pm UTC
+ * @version August 20, 2019, 12:22 pm UTC
 */
 
-class modeloRepository extends BaseRepository
+class ProjetoRepository extends BaseRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'projeto',
-        'nome'
+        'nome',
+        'linguagem'
     ];
 
     /**
@@ -36,6 +36,6 @@ class modeloRepository extends BaseRepository
      **/
     public function model()
     {
-        return modelo::class;
+        return Projeto::class;
     }
 }

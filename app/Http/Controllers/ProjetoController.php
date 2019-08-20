@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateprojetoRequest;
-use App\Http\Requests\UpdateprojetoRequest;
-use App\Repositories\projetoRepository;
+use App\Http\Requests\CreateProjetoRequest;
+use App\Http\Requests\UpdateProjetoRequest;
+use App\Repositories\ProjetoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class projetoController extends AppBaseController
+class ProjetoController extends AppBaseController
 {
-    /** @var  projetoRepository */
+    /** @var  ProjetoRepository */
     private $projetoRepository;
 
-    public function __construct(projetoRepository $projetoRepo)
+    public function __construct(ProjetoRepository $projetoRepo)
     {
         $this->projetoRepository = $projetoRepo;
     }
 
     /**
-     * Display a listing of the projeto.
+     * Display a listing of the Projeto.
      *
      * @param Request $request
      *
@@ -36,7 +36,7 @@ class projetoController extends AppBaseController
     }
 
     /**
-     * Show the form for creating a new projeto.
+     * Show the form for creating a new Projeto.
      *
      * @return Response
      */
@@ -46,13 +46,13 @@ class projetoController extends AppBaseController
     }
 
     /**
-     * Store a newly created projeto in storage.
+     * Store a newly created Projeto in storage.
      *
-     * @param CreateprojetoRequest $request
+     * @param CreateProjetoRequest $request
      *
      * @return Response
      */
-    public function store(CreateprojetoRequest $request)
+    public function store(CreateProjetoRequest $request)
     {
         $input = $request->all();
 
@@ -64,7 +64,7 @@ class projetoController extends AppBaseController
     }
 
     /**
-     * Display the specified projeto.
+     * Display the specified Projeto.
      *
      * @param int $id
      *
@@ -84,7 +84,7 @@ class projetoController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified projeto.
+     * Show the form for editing the specified Projeto.
      *
      * @param int $id
      *
@@ -104,14 +104,14 @@ class projetoController extends AppBaseController
     }
 
     /**
-     * Update the specified projeto in storage.
+     * Update the specified Projeto in storage.
      *
      * @param int $id
-     * @param UpdateprojetoRequest $request
+     * @param UpdateProjetoRequest $request
      *
      * @return Response
      */
-    public function update($id, UpdateprojetoRequest $request)
+    public function update($id, UpdateProjetoRequest $request)
     {
         $projeto = $this->projetoRepository->find($id);
 
@@ -129,7 +129,7 @@ class projetoController extends AppBaseController
     }
 
     /**
-     * Remove the specified projeto from storage.
+     * Remove the specified Projeto from storage.
      *
      * @param int $id
      *

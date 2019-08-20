@@ -90,7 +90,7 @@
         </header>
 
         <!-- Left side column. contains the logo and sidebar -->
-        @include('layouts.sidebar')
+            @include('layouts.sidebar')
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             @yield('content')
@@ -118,14 +118,15 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{!! url('/') !!}">
-                    InfyOm Generator
+                    Gerador
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{!! url('/home') !!}">Home</a></li>
+                    <!-- <li><a href="{!! url('/home') !!}">Home</a></li>-->
+                    <li>@include('layouts.menu')</li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -137,7 +138,7 @@
             </div>
         </div>
     </nav>
-
+    
     <div id="page-content-wrapper">
         <div class="container-fluid">
             <div class="row">

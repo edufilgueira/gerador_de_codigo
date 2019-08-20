@@ -4,16 +4,22 @@
     <p>{!! $modelo->id !!}</p>
 </div>
 
-<!-- Projeto Field -->
+<!-- Projeto Id Field -->
 <div class="form-group">
-    {!! Form::label('projeto', 'Projeto:') !!}
-    <p>{!! $modelo->projeto !!}</p>
+    {!! Form::label('projeto_id', 'Projeto Id:') !!}
+    <p>{!! $modelo->projeto_id !!}</p>
 </div>
 
-<!-- Nome Field -->
+<!-- Singular Field -->
 <div class="form-group">
-    {!! Form::label('nome', 'Nome:') !!}
-    <p>{!! $modelo->nome !!}</p>
+    {!! Form::label('singular', 'Singular:') !!}
+    <p>{!! $modelo->singular !!}</p>
+</div>
+
+<!-- Plural Field -->
+<div class="form-group">
+    {!! Form::label('plural', 'Plural:') !!}
+    <p>{!! $modelo->plural !!}</p>
 </div>
 
 <!-- Created At Field -->

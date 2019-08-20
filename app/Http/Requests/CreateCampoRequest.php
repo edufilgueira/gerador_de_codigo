@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\modelo;
+use App\Models\Campo;
 
-class CreatemodeloRequest extends FormRequest
+class CreateCampoRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class CreatemodeloRequest extends FormRequest
      */
     public function rules()
     {
-        return modelo::$rules;
+        return Campo::$rules;
     }
 }
