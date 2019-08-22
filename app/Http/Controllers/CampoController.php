@@ -95,6 +95,7 @@ class CampoController extends AppBaseController
     public function edit($id)
     {
         $campo = $this->campoRepository->find($id);
+        $modelos = Modelo::pluck('singular', 'id');
 
         if (empty($campo)) {
             Flash::error('Campo not found');
@@ -102,7 +103,7 @@ class CampoController extends AppBaseController
             return redirect(route('campos.index'));
         }
 
-        return view('campos.edit')->with('campo', $campo);
+        return view('campos.edit', compact('id', 'modelos'))->with('campo', $campo);
     }
 
     /**

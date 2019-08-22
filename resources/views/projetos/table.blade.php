@@ -22,6 +22,12 @@
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                     </div>
                     {!! Form::close() !!}
+
+                    {!! Form::open(['route' => ['projetos.gerar', $projeto->id], 'method' => 'gerar']) !!}
+                    <div class='btn-group'>
+                        {!! Form::button('<i class="glyphicon glyphicon-eye-open"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+                    </div>
+                    {!! Form::close() !!}
                 </td>
             </tr>
         @endforeach

@@ -7,6 +7,8 @@ use App\Http\Requests\UpdateProjetoRequest;
 use App\Repositories\ProjetoRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use App\Models\Modelo;
+use App\Models\Campo;
 use Flash;
 use Response;
 
@@ -18,6 +20,25 @@ class ProjetoController extends AppBaseController
     public function __construct(ProjetoRepository $projetoRepo)
     {
         $this->projetoRepository = $projetoRepo;
+    }
+
+    public function gerar($id){
+        
+        $projeto_id = $id;
+
+        $modelos = Modelo::where('projeto_id', $projeto_id)->get();
+        
+        //Percorrer todos os modelos de um projeto
+        foreach($modelos as $key => $modelo){
+            
+            //Percorrer todos os campos de um modelo
+            $campos = Campo::where('modelo_id', $modelo->id)->get();
+            foreach($campos as $key => $campo){
+                dd($campo);
+            }
+        }
+        
+        //return redirect(route('projetos.index'));
     }
 
     /**

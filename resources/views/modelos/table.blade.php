@@ -17,7 +17,7 @@
             <td>{!! $modelo->singular !!}</td>
             <td>{!! $modelo->plural !!}</td>
                 <td>
-                    {!! Form::open(['route' => ['modelos.destroy', $modelo->id], 'method' => 'delete']) !!}
+                {!! Form::open(['route' => ['modelos.destroy', $modelo->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <a href="{!! route('modelos.show', [$modelo->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
                         <a href="{!! route('modelos.edit', [$modelo->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>

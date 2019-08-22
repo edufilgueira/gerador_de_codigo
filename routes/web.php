@@ -35,6 +35,8 @@ Route::post(
     '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile'
 );
 
+
+Route::post('projetos/gerar/{id}','ProjetoController@gerar')->name('projetos.gerar');
 Route::resource('projetos', 'ProjetoController');
 
 Route::resource('modelos', 'ModeloController');

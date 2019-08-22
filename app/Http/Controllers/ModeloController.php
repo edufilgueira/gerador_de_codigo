@@ -94,6 +94,7 @@ class ModeloController extends AppBaseController
      */
     public function edit($id)
     {
+        $projetos = Projeto::pluck('nome', 'id');
         $modelo = $this->modeloRepository->find($id);
 
         if (empty($modelo)) {
@@ -102,7 +103,7 @@ class ModeloController extends AppBaseController
             return redirect(route('modelos.index'));
         }
 
-        return view('modelos.edit')->with('modelo', $modelo);
+        return view('modelos.edit', compact('id', 'projetos'))->with('modelo', $modelo);
     }
 
     /**

@@ -13,7 +13,7 @@
 <!-- Validador Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('validador', 'Validador:', ['style' => 'display: block;']) !!}
-    <select class="form-control" style='float: left; width: 160px;' id="tipo_input" name="tipo_input">
+    <select class="form-control" style='float: left; width: 160px;' id="validadores" name="tipo_input">
         <option value="unico">Único</option>
         <option value="email">E-mail</option>
         <option value="cpf">CPF</option>
@@ -38,7 +38,11 @@
 <script>
 $(document).ready(function() {
     $("#add_validator").click(function() {
-        alert('ss');
+        $("#validadores option:selected").val();
+        if( $("#validador").val() == "")
+            $("#validador").val( $("#validadores option:selected").val() );
+        else
+            $("#validador").val( $("#validador").val() + "," + $("#validadores option:selected").val() );
     });
 });
 </script>
