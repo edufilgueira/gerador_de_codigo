@@ -34,11 +34,19 @@ class ProjetoController extends AppBaseController
             //Percorrer todos os campos de um modelo
             $campos = Campo::where('modelo_id', $modelo->id)->get();
             foreach($campos as $key => $campo){
-                dd($campo);
+                //dd($campo);
             }
         }
-        
+        $this->gerar_arquivo("conteudo","pastas","arquivo.txt");
         //return redirect(route('projetos.index'));
+    }
+    
+    private function gerar_arquivo($conteudo, $diretorio, $arquivo){
+        if(!is_dir($diretorio))
+            mkdir($diretorio);
+        $arquivo = fopen("$diretorio/$arquivo", 'w');
+        fwrite($arquivo, $conteudo);
+        fclose($arquivo);
     }
 
     /**
