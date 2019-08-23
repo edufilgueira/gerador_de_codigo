@@ -140,7 +140,7 @@ export class AgeRangeService {
   }
 
   search(field, value, next_page_url): Observable<AgeRange[]> {
-    var url = (next_page_url) ? next_page_url+\`${field}=*${value}*`:`${apiUrl}?${field}=*${value}*`;
+    var url = (next_page_url) ? next_page_url+'&'+field+'=*'+value+'*' : apiUrl+'?'+field+'=*'+value+'*';
     return this.httpClient.get<AgeRange[]>(url)
       .pipe(
         tap(data => console.log('api search AgeRange')),
