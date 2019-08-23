@@ -17,7 +17,7 @@ class CreateCamposTable extends Migration
             $table->increments('id');
             $table->integer('modelo_id')->unsigned();
             $table->string('nome');
-            $table->string('validador');
+            $table->string('validador')->nullable();
             $table->string('tipo_input');
             $table->timestamps();
             $table->softDeletes();

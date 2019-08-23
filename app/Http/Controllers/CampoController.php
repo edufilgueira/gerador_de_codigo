@@ -44,7 +44,7 @@ class CampoController extends AppBaseController
     public function create()
     {
         $modelos = Modelo::pluck('singular', 'id');
-        return view('campos.create', compact('id', 'modelos'));
+        return view('campos.create', compact('modelos'));
     }
 
     /**
@@ -52,7 +52,7 @@ class CampoController extends AppBaseController
      *
      * @param CreateCampoRequest $request
      *
-     * @return Response
+     * @return Responsex
      */
     public function store(CreateCampoRequest $request)
     {

@@ -75,12 +75,27 @@ class ProjetoController extends AppBaseController
             mkdir($diretorio);
     }
 
+    private function primeiras_letras_maiuscula($string){
+        $array = explode('_', $string);
+
+        $nome = "";
+        foreach($array as $valor)
+        {
+            $nome = $nome . ucfirst($valor);
+        }
+
+        return $nome;
+    }
+
     public function gerar_model($projeto, $modelo, $campos, $caminho){
-        $conteudo = "export class ".$modelo->singular."{
+        
+        $PrimeiraMaiuscula = $this->primeiras_letras_maiuscula($modelo->singular);
+        $conteudo = "export class ".$PrimeiraMaiuscula."{
   public id: BigInteger;\n";
 
         foreach($campos as $key => $campo){
-            $conteudo .= "  public ".$campo->nome.": string;\n";
+            $nome = strtolower($campo->nome);
+            $conteudo .= "  public ".$nome.": string;\n";
             
         }
 
@@ -101,7 +116,11 @@ class ProjetoController extends AppBaseController
 
     public function gerar_service($modelo, $caminho){
         $this->criar_pasta($caminho."/".$modelo->singular);
-        $conteudo = "import { AgeRange } from '../../models/age_range';
+
+        $PrimeiraMaiuscula = $this->primeiras_letras_maiuscula($modelo->singular);
+        $minuscula = strtolower($modelo->singular);
+
+        $conteudo = "import { ".$PrimeiraMaiuscula." } from '../../models/".$minuscula."';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -149,11 +168,11 @@ export class AgeRangeService {
   }
 
   show(id): Observable<AgeRange> {
-    const url = `${apiUrl}/${id}`;
+    const url = apiUrl+'/'+id;
     console.log('testendo.... '+url);
     return this.httpClient.get<AgeRange>(url).pipe(
-      tap(_ => this.log(`fetched AgeRange id=${id}`)),
-      catchError(this.handleError<AgeRange>(`AgeRange id=${id}`))
+      tap(_ => this.log('fetched AgeRange id='+id)),
+      catchError(this.handleError<AgeRange>('AgeRange id='+id))
     );
   }
 
@@ -165,15 +184,15 @@ export class AgeRangeService {
   }
 
   update(id, ageRange): Observable<any> {
-    const url = `${apiUrl}/${id}`;
+    const url = apiUrl+'/'+id;
     return this.httpClient.put(url, ageRange, httpOptions).pipe(
-      tap(_ => this.log(`updated AgeRange id=${id}`)),
+      tap(_ => this.log('updated AgeRange id='+id)),
       catchError(this.handleError<any>('AgeRange'))
     );
   }
 
   destroy(id): Observable<AgeRange> {
-    const url = `${apiUrl}/${id}`;
+    const url = apiUrl+'/'+id;
     return this.httpClient.delete<AgeRange>(url, httpOptions).pipe(
       tap(_ => this.log(`deleted AgeRange`)),
       catchError(this.handleError<AgeRange>('AgeRange'))
@@ -193,7 +212,7 @@ export class AgeRangeService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
+      this.log(operation + 'failed: ' + error.message);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
@@ -201,7 +220,7 @@ export class AgeRangeService {
   }
 
   private log(message: string) {
-     console.log(`Service: ${message}`);
+     console.log('Service: '+ message);
   }
 }";
         $this->gerar_arquivo($conteudo, $caminho."/".$modelo->singular, $modelo->singular.".service.ts");

@@ -44,7 +44,7 @@ class ModeloController extends AppBaseController
     public function create()
     {
         $projetos = Projeto::pluck('nome', 'id');
-        return view('modelos.create', compact('id', 'projetos'));
+        return view('modelos.create', compact('projetos'));
     }
 
     /**
